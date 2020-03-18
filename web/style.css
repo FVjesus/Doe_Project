@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
 }
@@ -6,6 +10,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
 }
 
 header h1, main h2 {
@@ -14,6 +20,8 @@ header h1, main h2 {
 
 .form h2 {
     text-align: right;
+    color: #ffffffee;
+    font-size: 18px;
 }
 
 header, main, footer {
@@ -27,20 +35,28 @@ header, .form, main {
 }
 
 header button {
+    margin-top: 16px;
     padding: 8px 16px;
     border-radius: 4px;
+    border: none;
+    background-color: #ff4f4f;
+    color: white;
+    font-weight: bold;
 }
 
 section.form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 45px;
+    align-items: center;
+    background-color: #ff4f4f;
+    padding: 16px 64px;
+    border-radius: 6px;
 }
 
 form input, form button {
     width: 100%;
     margin-bottom: 4px;
-    box-sizing: border-box;
     padding: 8px 16px;
     border-radius: 4px;
     border: 1px red solid;
