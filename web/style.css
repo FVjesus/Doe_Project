@@ -1,0 +1,37 @@
+html, body {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header h1, main h2 {
+    margin-bottom: 70px;
+}
+
+header, main, footer {
+    text-align: center;
+}
+
+header, .form, main {
+    margin: 0 auto 70px;
+    width: 90%;
+    max-width: 500px;
+}
+
+section.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main .donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+footer {
+    margin-top: auto;
+}
