@@ -12,6 +12,10 @@ header h1, main h2 {
     margin-bottom: 70px;
 }
 
+.form h2 {
+    text-align: right;
+}
+
 header, main, footer {
     text-align: center;
 }
@@ -22,9 +26,24 @@ header, .form, main {
     max-width: 500px;
 }
 
+header button {
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
 section.form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 45px;
+}
+
+form input, form button {
+    width: 100%;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px red solid;
 }
 
 main .donors {
@@ -34,4 +53,6 @@ main .donors {
 
 footer {
     margin-top: auto;
+    padding: 16px;
+    border: 1px solid #eee;
 }
