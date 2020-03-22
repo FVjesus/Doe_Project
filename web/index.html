@@ -15,8 +15,7 @@
             <img
                 class="logo"
                 src="/logo.jpg"
-                alt="Imagem de DOE"
-                >
+                alt="Imagem de DOE">
             <h2>A sua doação importa</h2>
             <p>Até 3 vidas com 1 doação</p>
             <p>Mais de 38.000 doações são necessárias todos os dias</p>
@@ -51,26 +50,15 @@
             <h2>Últimos <span>doadores</span> </h2>
 
             <section class="donors">
-                <div class="donor">
-                    <div class="blood">AB+</div>
 
-                    <p>Fabrício Veloso</p>
-                </div>
-                <div class="donor">
-                    <div class="blood">AB+</div>
+                {% for donor in donors %}
 
-                    <p>Erick Joho</p>
-                </div>
                 <div class="donor">
-                    <div class="blood">AB+</div>
-
-                    <p>Kadmus Krigem</p>
+                    <div class="blood">{{donor.blood}}</div>
+                    <p>{{donor.name}}</p>
                 </div>
-                <div class="donor">
-                    <div class="blood">AB+</div>
 
-                    <p>Homer simpson</p>
-                </div>
+                {%endfor%}
             </section>
         </main>
 
