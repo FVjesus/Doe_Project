@@ -22,6 +22,7 @@ nunjucks.configure("../web", {
 
 
 server.get("/", function (require, response) {
+    const donors = []
     return response.render("index.html", { donors });
 });
 
@@ -30,13 +31,21 @@ server.post("/", function (require, response) {
     const email = require.body.email;
     const blood = require.body.blood;
 
+    if (name == "" || email == "" || blood == "") {
+        return response.send("Todos os campos são obrigatórios.")
+    };
+
     const query = `
         INSERT INTO donors ("name", "email", "blood")
-        VALUES ($1, $2, $3)`
+        VALUES ($1, $2, $3)`;
 
-    db.query(query,[name, email, blood])
+    const values = [name, email, blood];
+    db.query(query, values, function(err){
+        if (err) return response.send("erro no banco de dados.");
 
-    return response.redirect("/");
+        return response.redirect("/");
+    });
+  
 });
 
 
