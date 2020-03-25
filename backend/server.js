@@ -6,30 +6,20 @@ const nunjucks = require("nunjucks");
 server.use(express.static('../web/public'));
 server.use(express.urlencoded({ extended: true }));
 
+const Pool = require('pg').Pool
+const db = new Pool({
+    user: 'postgres',
+    password: '0000',
+    host: 'localhost',
+    port: 5432,
+    database: 'doe'
+})
+
 nunjucks.configure("../web", {
     express: server,
     noCache: true,
 });
 
-
-const donors = [
-    {
-        name: "Fabrício Veloso",
-        blood: "AB+"
-    },
-    {
-        name: "Erick Joho",
-        blood: "B-"
-    },
-    {
-        name: "Kadmus Krigem",
-        blood: "O+"
-    },
-    {
-        name: "Homer Simpson",
-        blood: "AB-"
-    }
-]
 
 server.get("/", function (require, response) {
     return response.render("index.html", { donors });
@@ -40,10 +30,11 @@ server.post("/", function (require, response) {
     const email = require.body.email;
     const blood = require.body.blood;
 
-    donors.push({
-        name: name,
-        blood: blood
-    });
+    const query = `
+        INSERT INTO donors ("name", "email", "blood")
+        VALUES ($1, $2, $3)`
+
+    db.query(query,[name, email, blood])
 
     return response.redirect("/");
 });
