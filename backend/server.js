@@ -22,8 +22,12 @@ nunjucks.configure("../web", {
 
 
 server.get("/", function (require, response) {
-    const donors = []
-    return response.render("index.html", { donors });
+    db.query("SELECT * FROM donors",function(err, result){
+        if(err) return response.send("Erro de banco de dados.")
+
+        const donors = result.rows;
+        return response.render("index.html", { donors });
+    });
 });
 
 server.post("/", function (require, response) {
