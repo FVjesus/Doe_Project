@@ -3,13 +3,13 @@
 > Project developed in the Dev Marathon
 
 ## The Project
-Doe is a system for registering blood donors.
+Doe Project is a system for registering blood donors.
 
 ![](/img/1.png)
 ![](/img/2.png)
 
 
-##Build project.
+## Build project.
 Inside the backend folder use the following commands
 
 ```sh
@@ -27,5 +27,5 @@ to start aplication.
 
 ## Other Tecnologies:
 * [Express](https://expressjs.com/)
-* [Postgres](https://www.postgresql.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 
